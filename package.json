@@ -4,7 +4,7 @@
   "description": "react scaffold for REST based API with React frontend",
   "main": "index.js",
   "scripts": {
-    "start": "node --harmony src/server/server.js",
+    "start": "babel-node src/server/server.js",
     "test": "jest --watch"
   },
   "keywords": [
@@ -44,6 +44,8 @@
     "webpack-hot-middleware": "^2.17.1"
   },
   "dependencies": {
+    "axios": "^0.15.3",
+    "babel-cli": "^6.24.0",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "react": "^15.4.2",
@@ -52,7 +54,8 @@
     "react-router": "^4.0.0",
     "react-router-dom": "^4.0.0-beta.8",
     "redux": "^3.6.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "semantic-ui-react": "^0.67.1"
   },
   "babel": {
     "presets": [
@@ -61,7 +64,7 @@
     ]
   },
   "jest": {
-    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "transform": {".*": "<rootDir>/node_modules/babel-jest"},
     "unmockedModulePathPatterns": [
       "<rootDir>/node_modules/react",
       "<rootDir>/node_modules/react-dom",

@@ -1,21 +1,11 @@
 import { combineReducers } from 'redux'
 
+import contactsReducer from './components/contacts/reducer'
+
 const initialState = {}
 
-function exampleReducer (state=initialState, action) {
-  const { payload } = action
-
-  switch (action.type) {
-    case 'NOOP':
-      return state
-
-    default:
-      return state
-  }
-}
-
 const combinedReducers = combineReducers({
-  exampleReducer
+  contacts: contactsReducer
 })
 
 function rootReducer (state, action) {

@@ -3,54 +3,34 @@ import {
   // BrowserRouter as Router,
   HashRouter as Router,
   Route,
-  Link,
+  // Link,
   NavLink,
   Switch,
   Redirect
 } from 'react-router-dom'
+
+import ListContacts from './contacts/ListContacts.jsx'
+
+// import { Menu } from 'semantic-ui-react'
 
 // const ShowProps = (props) => <pre>{JSON.stringify(props, null, 4)}</pre>
 
 const Home = () => <h1>Home</h1>
 const About = () => <h1>About</h1>
 
-const contacts = [
-  {id: 1, name: 'Brennan'},
-  {id: 2, name: 'John'},
-  {id: 3, name: 'Alex'}
-]
-
-const ListContacts = () => {
-  return (
-    <div className="contacts-list">
-      <h1>Contacts</h1>
-      <ul className="contacts-list">
-        {contacts.map(contact =>
-          <li key={contact.id}><Link to={`/contacts/${contact.id}`}>{contact.name}</Link></li>)}
-      </ul>
-    </div>
-  )
-}
-
-const EditContact = ({ match }) => {
-  const id = +match.params.id
-  const contact = contacts.find(x => x.id === id)
-  return (
-    <pre>{JSON.stringify(contact, null, 4)}</pre>
-  )
-}
-
 const ActiveNavLink = (props) => (
   <NavLink activeClassName="active" {...props}>{props.children}</NavLink>
 )
 
 const NavMenu = () => (
-  <nav>
-    <ActiveNavLink exact to="/">Home</ActiveNavLink>
-    <ActiveNavLink to="/about">About</ActiveNavLink>
-    <ActiveNavLink exact to="/contacts">Contacts</ActiveNavLink>
+  <nav className="ui menu">
+    <ActiveNavLink className="item" exact to="/">Home</ActiveNavLink>
+    <ActiveNavLink className="item" to="/about">About</ActiveNavLink>
+    <ActiveNavLink className="item" exact to="/contacts">Contacts</ActiveNavLink>
   </nav>
 )
+
+const EditContact = () => (<h1>Edit Contact</h1>)
 
 const App = () => (
   <Router>

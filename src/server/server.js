@@ -1,5 +1,8 @@
-const express = require('express')
-const http = require('http')
+import express from 'express'
+import http from 'http'
+import bodyParser from 'body-parser'
+
+import contactsRouter from './contacts_router'
 
 const app = express()
 const port = 4000
@@ -33,9 +36,10 @@ if (isDev) {
   app.use(webpackHotMiddleware)
 }
 
-app.get('/hello', (req, res) => {
-  res.send('hello there')
-})
+// app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+
+app.use('/contacts', contactsRouter)
 
 const server = http.createServer(app)
 server.listen(port)
