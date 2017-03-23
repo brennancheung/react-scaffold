@@ -5,13 +5,13 @@ import { Item } from 'semantic-ui-react'
 
 import { fetchContacts } from './actions'
 
-function mapStateToProps (state) {
-  return {
-    contacts: (state.contacts && state.contacts.contacts) || []
-  }
-}
+import AddContactForm from './AddContact.jsx'
 
-@connect(mapStateToProps)
+@connect(
+  (state) => ({
+    contacts: (state.contacts && state.contacts.contacts) || []
+  })
+)
 class ListContacts extends React.Component {
   componentDidMount () {
     const { dispatch } = this.props
