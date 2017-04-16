@@ -51,25 +51,25 @@ if (isProd) {
 } else {
   // development
   appEntry.push(
-    'babel-polyfill',
-    'react-hot-loader/patch',
-    'webpack-hot-middleware/client'
+    // 'react-hot-loader/patch',
+    'webpack-hot-middleware/client',
+    'babel-polyfill'
   )
   plugins.push(
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor', 'manifest']
-    })
+    // new webpack.NamedModulesPlugin(),
+    // new webpack.NoEmitOnErrorsPlugin(),
+    // new webpack.optimize.CommonsChunkPlugin({
+      // names: ['vendor', 'manifest']
+    // })
   )
 }
 appEntry.push('./index.js')
 
 module.exports = {
   entry: {
-    app: appEntry,
-    vendor: ['react', 'react-dom']
+    app: appEntry
+    // vendor: ['react', 'react-dom']
   },
   output: {
     filename: isProd ? '[chunkhash]-[name]-bundle.js' : '[name]-bundle.js',

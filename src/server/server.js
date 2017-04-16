@@ -2,8 +2,6 @@ import express from 'express'
 import http from 'http'
 import bodyParser from 'body-parser'
 
-import contactsRouter from './contacts_router'
-
 const app = express()
 const port = 4000
 
@@ -25,7 +23,7 @@ if (isDev) {
   const compiler = webpack(webpackConfig)
 
   const webpackDevMiddleware = require('webpack-dev-middleware')(compiler, {
-    noInfo: true,
+    noInfo: false,
     stats: {
       colors: true
     }
@@ -38,8 +36,6 @@ if (isDev) {
 
 // app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-
-app.use('/contacts', contactsRouter)
 
 const server = http.createServer(app)
 server.listen(port)
