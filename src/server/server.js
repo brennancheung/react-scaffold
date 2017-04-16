@@ -23,7 +23,7 @@ if (isDev) {
   const compiler = webpack(webpackConfig)
 
   const webpackDevMiddleware = require('webpack-dev-middleware')(compiler, {
-    noInfo: false,
+    noInfo: true,
     stats: {
       colors: true
     }

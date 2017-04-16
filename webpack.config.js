@@ -57,8 +57,8 @@ if (isProd) {
   )
   plugins.push(
     new webpack.HotModuleReplacementPlugin(),
-    // new webpack.NamedModulesPlugin(),
-    // new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
     // new webpack.optimize.CommonsChunkPlugin({
       // names: ['vendor', 'manifest']
     // })
